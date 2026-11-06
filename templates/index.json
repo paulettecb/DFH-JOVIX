@@ -1,0 +1,494 @@
+{
+  "sections": {
+    "producto": {
+      "type": "featured-product",
+      "blocks": {
+        "caption": {
+          "type": "text",
+          "settings": {
+            "text": "NUEVO · DFH JOVIX",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h0"
+          }
+        },
+        "tag": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>Nutrición para tu cabello, desde la raíz.</strong>",
+            "text_style": "body"
+          }
+        },
+        "sub": {
+          "type": "text",
+          "settings": {
+            "text": "Ocho nutrientes en una sola cápsula, diseñados por un tricólogo que quiere verte bien. Vitaminas, minerales aminoquelados y extractos naturales para un cabello fuerte, con brillo y con densidad.",
+            "text_style": "subtitle"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "qty": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "icons": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "bottle",
+            "heading_1": "60 cápsulas",
+            "icon_2": "plant",
+            "heading_2": "Minerales aminoquelados",
+            "icon_3": "check_mark",
+            "heading_3": "Formulado por tricólogo"
+          }
+        }
+      },
+      "block_order": [
+        "caption",
+        "title",
+        "tag",
+        "sub",
+        "price",
+        "qty",
+        "buy",
+        "icons"
+      ],
+      "settings": {
+        "product": "jauiri",
+        "color_scheme": "scheme-1",
+        "secondary_background": false,
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "media_position": "right",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 40,
+        "padding_bottom": 56
+      }
+    },
+    "beneficios": {
+      "type": "multicolumn",
+      "blocks": {
+        "b-0": {
+          "type": "column",
+          "settings": {
+            "title": "Desde la raíz",
+            "text": "<p>Nutrientes que el folículo necesita para trabajar bien.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "b-1": {
+          "type": "column",
+          "settings": {
+            "title": "Antioxidante",
+            "text": "<p>Zinc y selenio aminoquelados, de mejor absorción.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "b-2": {
+          "type": "column",
+          "settings": {
+            "title": "Cabello, piel y uñas",
+            "text": "<p>Biotina, B6 y ácido fólico.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "b-3": {
+          "type": "column",
+          "settings": {
+            "title": "Criterio médico",
+            "text": "<p>Diseñado en consulta por un tricólogo.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "b-0",
+        "b-1",
+        "b-2",
+        "b-3"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-4",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "porque": {
+      "type": "rich-text",
+      "blocks": {
+        "c": {
+          "type": "caption",
+          "settings": {
+            "caption": "POR QUÉ JAUIRI",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "h": {
+          "type": "heading",
+          "settings": {
+            "heading": "Tu cabello es lo primero que <em>resiente</em> lo que le falta.",
+            "heading_size": "h1"
+          }
+        },
+        "t": {
+          "type": "text",
+          "settings": {
+            "text": "<p>El folículo es de los tejidos que más rápido se renuevan en el cuerpo, y por eso es de los primeros en notar el estrés, una mala racha de alimentación o una deficiencia. El resultado se ve: cabello más delgado, opaco o que se cae más de lo normal.</p><p>En consulta, el Dr. Cambrón ve esto todos los días. Jauiri reúne en una sola fórmula los nutrientes que tu folículo necesita para trabajar bien.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "c",
+        "h",
+        "t"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "padding_top": 64,
+        "padding_bottom": 40
+      }
+    },
+    "formula": {
+      "type": "multicolumn",
+      "blocks": {
+        "i-0": {
+          "type": "column",
+          "settings": {
+            "title": "Cola de caballo · 150 mg",
+            "text": "<p>Planta rica en silicio, mineral presente en la estructura del cabello y las uñas.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "i-1": {
+          "type": "column",
+          "settings": {
+            "title": "Biotina (B7) · 30 mcg",
+            "text": "<p>Contribuye al mantenimiento normal del cabello y la piel.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "i-2": {
+          "type": "column",
+          "settings": {
+            "title": "Myo-inositol · 50 mg",
+            "text": "<p>Participa en la señalización de las células y en el equilibrio metabólico.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "i-3": {
+          "type": "column",
+          "settings": {
+            "title": "L-metionina · 50 mg",
+            "text": "<p>Aminoácido con azufre que el cuerpo usa para formar queratina.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "i-4": {
+          "type": "column",
+          "settings": {
+            "title": "Zinc aminoquelado · 10 mg",
+            "text": "<p>Contribuye al mantenimiento normal del cabello y las uñas.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "i-5": {
+          "type": "column",
+          "settings": {
+            "title": "Selenio aminoquelado · 100 mcg",
+            "text": "<p>Antioxidante que contribuye al mantenimiento normal del cabello.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "i-6": {
+          "type": "column",
+          "settings": {
+            "title": "Vitamina B6 · 1.6 mg",
+            "text": "<p>Interviene en el aprovechamiento de las proteínas.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "i-7": {
+          "type": "column",
+          "settings": {
+            "title": "Ácido fólico (B9) · 400 mcg",
+            "text": "<p>Esencial para la división celular, con la que el folículo produce cabello nuevo.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "i-0",
+        "i-1",
+        "i-2",
+        "i-3",
+        "i-4",
+        "i-5",
+        "i-6",
+        "i-7"
+      ],
+      "settings": {
+        "title": "Cada ingrediente tiene <em>un trabajo</em>.",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 4,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "doctor": {
+      "type": "rich-text",
+      "blocks": {
+        "c": {
+          "type": "caption",
+          "settings": {
+            "caption": "RESPALDO MÉDICO",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "h": {
+          "type": "heading",
+          "settings": {
+            "heading": "Creado por un tricólogo.",
+            "heading_size": "h1"
+          }
+        },
+        "t": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Jauiri nace en la consulta del Dr. Jorge Cambrón Barrales, médico especialista en tricología integral (Cédula Profesional 13107981). Desde la medicina funcional, su trabajo es encontrar el <em>porqué</em> de cada caída. Jauiri lleva esa experiencia de consulta a una sola cápsula.</p>"
+          }
+        },
+        "b": {
+          "type": "button",
+          "settings": {
+            "button_label": "Conocer al doctor",
+            "button_link": "https://paulettecb.github.io/drjorgecambr-n-tricolog-a/",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "c",
+        "h",
+        "t",
+        "b"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "full_width": false,
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "uso": {
+      "type": "multicolumn",
+      "blocks": {
+        "u-0": {
+          "type": "column",
+          "settings": {
+            "title": "01 · Tómalo todos los días",
+            "text": "<p>De preferencia con alimentos.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "u-1": {
+          "type": "column",
+          "settings": {
+            "title": "02 · Dale mínimo 3 meses",
+            "text": "<p>Es el tiempo que tarda el ciclo del cabello en mostrar los cambios.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "u-2": {
+          "type": "column",
+          "settings": {
+            "title": "03 · Potencia tu resultado",
+            "text": "<p>Si tu caída es intensa, combínalo con una valoración capilar para tratar la causa de fondo.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "u-0",
+        "u-1",
+        "u-2"
+      ],
+      "settings": {
+        "title": "Simple, diario, <em>constante</em>.",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "faq-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿En cuánto tiempo veo resultados?",
+            "icon": "question_mark",
+            "row_content": "<p>El cabello tiene un ciclo lento. Recomendamos tomar Jauiri todos los días al menos 3 meses para evaluar el cambio en fuerza, brillo y caída.</p>"
+          }
+        },
+        "faq-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Lo pueden tomar hombres y mujeres?",
+            "icon": "question_mark",
+            "row_content": "<p>Sí, la fórmula es para adultos, hombres y mujeres.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Sustituye un tratamiento para la caída?",
+            "icon": "question_mark",
+            "row_content": "<p>No. Jauiri es un apoyo nutricional. Si tu caída es intensa, repentina o lleva meses, lo ideal es una valoración capilar para encontrar la causa.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Puedo tomarlo si estoy embarazada, lactando o tomo medicamentos?",
+            "icon": "question_mark",
+            "row_content": "<p>En esos casos consulta primero a tu médico antes de empezar cualquier suplemento.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Cómo se toma?",
+            "icon": "question_mark",
+            "row_content": "<p>Todos los días, de preferencia con alimentos. Constancia mínima de 3 meses.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq-0",
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4"
+      ],
+      "settings": {
+        "caption": "PREGUNTAS FRECUENTES",
+        "heading": "Antes de empezar.",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "scheme-4",
+        "color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "legal": {
+      "type": "rich-text",
+      "blocks": {
+        "t": {
+          "type": "text",
+          "settings": {
+            "text": "<p class=\"jv-legal\"><strong>ESTE PRODUCTO NO ES UN MEDICAMENTO. EL CONSUMO DE ESTE PRODUCTO ES RESPONSABILIDAD DE QUIEN LO RECOMIENDA Y DE QUIEN LO USA.</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "t"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "producto",
+    "beneficios",
+    "porque",
+    "formula",
+    "doctor",
+    "uso",
+    "faq",
+    "legal"
+  ]
+}

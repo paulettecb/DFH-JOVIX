@@ -1,0 +1,41 @@
+/* =========================================================
+   DFH JOVIX · ajustes de marca sobre Dawn
+   Mismo design system que la web del Dr. Cambrón
+   ("Tricología Cambrón"): marino = acción, dorado = acento,
+   neutros cálidos, Bricolage Grotesque + Inter.
+   ========================================================= */
+:root {
+  --jv-navy: #1F4E6B;
+  --jv-ink: #17273A;
+  --jv-gold: #C89331;
+  --jv-gold-deep: #8A6A1F;
+  --jv-gold-tint: #F5EBD3;
+  --font-heading-family: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-heading-weight: 700;
+}
+
+h1, h2, h3, h4, h5, .h0, .h1, .h2, .h3, .h4, .h5 {
+  letter-spacing: -0.015em;
+}
+
+/* Énfasis en títulos (texto en cursiva dentro de un título) en dorado */
+h1 em, h2 em, h3 em, .h0 em, .h1 em, .h2 em { color: var(--jv-gold-deep); }
+
+/* Subtítulos pequeños ("caption") como el eyebrow del sitio: raya dorada + marino */
+.caption-with-letter-spacing {
+  display: inline-flex; align-items: center; gap: 12px;
+  letter-spacing: .18em; font-weight: 600; color: var(--jv-navy);
+}
+.caption-with-letter-spacing::before {
+  content: ""; width: 28px; height: 3px; border-radius: 999px; background: var(--jv-gold);
+}
+.color-scheme-3 .caption-with-letter-spacing { color: var(--jv-gold); }
+
+/* Botones con peso del sitio */
+.button, .shopify-payment-button__button--unbranded { font-weight: 600; letter-spacing: 0; }
+
+/* Etiqueta de oferta/badges en dorado suave, nunca relleno fuerte */
+.badge { border-radius: 999px; }
+
+/* Leyenda obligatoria del suplemento */
+.jv-legal { font-size: 1.25rem; letter-spacing: .02em; opacity: .9; }
