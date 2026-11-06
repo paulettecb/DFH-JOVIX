@@ -1,39 +1,58 @@
 /* =========================================================
-   DFH JOVIX · ajustes de marca sobre Dawn
-   Mismo design system que la web del Dr. Cambrón
-   ("Tricología Cambrón"): marino = acción, dorado = acento,
-   neutros cálidos, Bricolage Grotesque + Inter.
+   DFH JOVIX · Design system de la marca de suplementos
+   Comparte con el sitio del Dr. Cambrón la estructura (Bricolage
+   Grotesque + Inter, escala, radios, eyebrow con raya) pero tiene
+   su propia paleta, tomada de la etiqueta de Jauiri:
+     noche #0B0812 · blanco frío #F6F5F9 · lila gris #ECEAF2
+     magenta #E9489F · violeta #8B5CF6 · azul eléctrico #4FA8F5
+     plata #C9CFDA
+   El marino #1F4E6B queda SOLO como "sello" del Dr. Cambrón
+   (barra de anuncio y sección del doctor = esquema 6).
    ========================================================= */
 :root {
-  --jv-navy: #1F4E6B;
-  --jv-ink: #17273A;
-  --jv-gold: #C89331;
-  --jv-gold-deep: #8A6A1F;
-  --jv-gold-tint: #F5EBD3;
+  --jv-night: #0B0812;
+  --jv-ink: #0E0B16;
+  --jv-magenta: #E9489F;
+  --jv-violet: #8B5CF6;
+  --jv-blue: #4FA8F5;
+  --jv-silver: #C9CFDA;
+  --jv-grad: linear-gradient(90deg, #E9489F 0%, #8B5CF6 50%, #4FA8F5 100%);
+  --jv-grad-deep: linear-gradient(90deg, #C0267F 0%, #6D3FE0 50%, #2D7FD6 100%);
+  --jv-doctor: #1F4E6B;
   --font-heading-family: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --font-heading-weight: 700;
 }
 
-h1, h2, h3, h4, h5, .h0, .h1, .h2, .h3, .h4, .h5 {
-  letter-spacing: -0.015em;
+h1, h2, h3, h4, h5, .h0, .h1, .h2, .h3, .h4, .h5 { letter-spacing: -0.015em; }
+
+/* Énfasis en títulos: degradado de la etiqueta (más profundo sobre claro) */
+h1 em, h2 em, h3 em, .h0 em, .h1 em, .h2 em {
+  font-style: italic; background: var(--jv-grad-deep); -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: .08em;
 }
+.color-scheme-3 :is(h1, h2, h3, .h0, .h1, .h2) em,
+.color-scheme-5 :is(h1, h2, h3, .h0, .h1, .h2) em { background: linear-gradient(90deg, #FF7AC8, #A98BFF 50%, #7CC4FF); -webkit-background-clip: text; background-clip: text; }
+.color-scheme-6 :is(h1, h2, h3, .h0, .h1, .h2) em { background: none; color: #E2B85C; } /* sello del doctor: su dorado */
 
-/* Énfasis en títulos (texto en cursiva dentro de un título) en dorado */
-h1 em, h2 em, h3 em, .h0 em, .h1 em, .h2 em { color: var(--jv-gold-deep); }
-
-/* Subtítulos pequeños ("caption") como el eyebrow del sitio: raya dorada + marino */
+/* Eyebrow: raya con el degradado de la marca */
 .caption-with-letter-spacing {
   display: inline-flex; align-items: center; gap: 12px;
-  letter-spacing: .18em; font-weight: 600; color: var(--jv-navy);
+  letter-spacing: .18em; font-weight: 600; color: var(--jv-ink);
 }
-.caption-with-letter-spacing::before {
-  content: ""; width: 28px; height: 3px; border-radius: 999px; background: var(--jv-gold);
-}
-.color-scheme-3 .caption-with-letter-spacing { color: var(--jv-gold); }
+.caption-with-letter-spacing::before { content: ""; width: 28px; height: 3px; border-radius: 999px; background: var(--jv-grad); }
+.color-scheme-3 .caption-with-letter-spacing, .color-scheme-5 .caption-with-letter-spacing { color: var(--jv-silver); }
+.color-scheme-6 .caption-with-letter-spacing { color: #E2B85C; }
+.color-scheme-6 .caption-with-letter-spacing::before { background: #C89331; }
 
-/* Botones con peso del sitio */
+/* Botones */
 .button, .shopify-payment-button__button--unbranded { font-weight: 600; letter-spacing: 0; }
-
-/* Etiqueta de oferta/badges en dorado suave, nunca relleno fuerte */
+.color-scheme-1 .button:not(.button--secondary), .color-scheme-2 .button:not(.button--secondary), .color-scheme-4 .button:not(.button--secondary) {
+  box-shadow: 0 12px 30px -12px rgba(139, 92, 246, .55);
+}
 .badge { border-radius: 999px; }
 
+/* Precio con un poco más de presencia */
+.price-item--regular, .price-item--sale { font-weight: 600; }
+
+/* Tarjetas de columnas (fórmula, modo de uso): borde con un toque de color al pasar */
+.multicolumn-card { transition: transform .3s ease, box-shadow .3s ease; }
+.multicolumn-card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -24px rgba(139, 92, 246, .6); }

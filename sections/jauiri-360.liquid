@@ -45,16 +45,16 @@
     .j360__line { font-size: clamp(3.2rem, 3.4vw, 5.4rem); }
     .j360__shade { background: linear-gradient(180deg, #050307 0%, rgba(5,3,7,0) 18%, rgba(5,3,7,0) 75%, #050307 100%), linear-gradient(90deg, rgba(5,3,7,.85) 0%, rgba(5,3,7,0) 38%); }
   }
-  .j360__eyebrow { display: inline-flex; align-items: center; gap: 12px; margin: 0 0 10px; font-size: 1.2rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: #C89331; }
-  .j360__eyebrow::before, .j360__eyebrow::after { content: ""; width: 28px; height: 3px; border-radius: 999px; background: #C89331; }
+  .j360__eyebrow { display: inline-flex; align-items: center; gap: 12px; margin: 0 0 10px; font-size: 1.2rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: #C9CFDA; }
+  .j360__eyebrow::before, .j360__eyebrow::after { content: ""; width: 28px; height: 3px; border-radius: 999px; background: linear-gradient(90deg, #E9489F 0%, #8B5CF6 50%, #4FA8F5 100%); }
   .j360__stack { display: grid; place-items: center; }
   .j360__line { grid-area: 1 / 1; margin: 0; color: #fff; font-family: var(--font-heading-family); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05;
     font-size: clamp(3rem, 4.6vw, 6.6rem); max-width: 20ch;
     opacity: 0; transform: translateY(20px); filter: blur(8px); transition: opacity .6s ease, transform .8s cubic-bezier(.22,1,.36,1), filter .6s ease; }
-  .j360__line em { font-style: italic; color: #E2B85C; }
+  .j360__line em { font-style: italic; background: linear-gradient(90deg, #FF7AC8, #A98BFF 50%, #7CC4FF); -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: .08em; }
   .j360__line.is-on { opacity: 1; transform: none; filter: none; }
   .j360__bar { position: absolute; left: 50%; bottom: 3svh; width: min(220px, 40vw); height: 2px; transform: translateX(-50%); background: rgba(255,255,255,.18); border-radius: 2px; overflow: hidden; }
-  .j360__bar span { display: block; height: 100%; width: 100%; background: #C89331; transform-origin: left; transform: scaleX(var(--p, 0)); }
+  .j360__bar span { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, #E9489F 0%, #8B5CF6 50%, #4FA8F5 100%); transform-origin: left; transform: scaleX(var(--p, 0)); }
   @media (prefers-reduced-motion: reduce) {
     .j360 { height: auto; } .j360__stage { position: relative; }
     .j360__canvas, .j360__bar { display: none; } .j360__line[data-l="1"] { opacity: 1; transform: none; filter: none; }
