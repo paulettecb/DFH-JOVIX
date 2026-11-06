@@ -12,7 +12,10 @@
   data-frames="{{ frames }}"
 >
   <div class="j360__stage">
-    <img class="j360__poster" src="{{ 'jauiri-360-001.webp' | asset_url }}" alt="Frasco de Jauiri girando" width="1280" height="720" loading="eager">
+    <picture>
+      <source media="(max-aspect-ratio: 1/1)" srcset="{{ 'jauiri-360m-001.webp' | asset_url }}">
+      <img class="j360__poster" src="{{ 'jauiri-360-001.webp' | asset_url }}" alt="Frasco de Jauiri girando" width="1280" height="720" loading="eager">
+    </picture>
     <canvas class="j360__canvas" aria-hidden="true"></canvas>
     <div class="j360__shade" aria-hidden="true"></div>
     <div class="j360__lines">
@@ -30,7 +33,6 @@
   .j360 { position: relative; height: 420vh; background: #050307; color: #fff; }
   .j360__stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
   .j360__poster, .j360__canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-  @media screen and (max-width: 749px) { .j360__poster { object-fit: contain; } }
   .j360__canvas { opacity: 0; transition: opacity .5s ease; }
   .j360.is-ready .j360__canvas { opacity: 1; }
   .j360__shade { position: absolute; inset: 0; pointer-events: none;
@@ -66,11 +68,13 @@
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var total = Number(root.dataset.frames) || 80;
     var first = root.querySelector('.j360__poster').getAttribute('src');
+    // Pantallas verticales (celular) usan la versión vertical del video
+    var prefix = window.matchMedia('(max-aspect-ratio: 1/1)').matches ? 'jauiri-360m-' : 'jauiri-360-';
     var canvas = root.querySelector('.j360__canvas'), ctx = canvas.getContext('2d');
     var lines = root.querySelectorAll('.j360__line');
     var imgs = new Array(total), loaded = 0, started = false, current = -1;
 
-    function src(i) { var n = String(i + 1); while (n.length < 3) n = '0' + n; return first.replace('jauiri-360-001.webp', 'jauiri-360-' + n + '.webp'); }
+    function src(i) { var n = String(i + 1); while (n.length < 3) n = '0' + n; return first.replace('jauiri-360-001.webp', prefix + n + '.webp'); }
     function load() {
       if (started) return; started = true;
       // Primero cada 8° cuadro (para poder mover rápido), luego el resto
@@ -108,13 +112,14 @@
       var im = nearest(i); if (!im) return;
       current = i;
       var cw = canvas.width, ch = canvas.height, iw = im.naturalWidth, ih = im.naturalHeight;
-      var mobile = cw < ch;
+      var mobile = cw < ch && iw > ih; // video horizontal en pantalla vertical
       // En celular se acerca al frasco (no a todo el cuadro) y se rellena de negro
-      var s = mobile ? Math.min(2.4 * cw / iw, ch / ih * 1.05) : Math.max(cw / iw, ch / ih), w = iw * s, h = ih * s;
+      var tall = cw < ch && ih > iw; // video vertical en celular: cabe a lo ancho
+      var s = mobile ? Math.min(2.4 * cw / iw, ch / ih * 1.05) : tall ? Math.max(cw / iw, ch / ih * 0.86) : Math.max(cw / iw, ch / ih), w = iw * s, h = ih * s;
       ctx.fillStyle = '#050307'; ctx.fillRect(0, 0, cw, ch);
       ctx.drawImage(im, (cw - w) / 2, (ch - h) / 2 - (mobile ? ch * 0.06 : 0), w, h);
-      if (mobile) {
-        var y0 = (ch - h) / 2 - ch * 0.06, fade = h * 0.22;
+      if (mobile || (tall && h < ch)) {
+        var y0 = (ch - h) / 2 - (mobile ? ch * 0.06 : 0), fade = h * (mobile ? 0.22 : 0.12);
         var g1 = ctx.createLinearGradient(0, y0, 0, y0 + fade); g1.addColorStop(0, '#050307'); g1.addColorStop(1, 'rgba(5,3,7,0)');
         ctx.fillStyle = g1; ctx.fillRect(0, y0 - 1, cw, fade + 1);
         var g2 = ctx.createLinearGradient(0, y0 + h - fade, 0, y0 + h); g2.addColorStop(0, 'rgba(5,3,7,0)'); g2.addColorStop(1, '#050307');
