@@ -464,7 +464,7 @@
         "t": {
           "type": "text",
           "settings": {
-            "text": "<p class=\"jv-legal\"><strong>ESTE PRODUCTO NO ES UN MEDICAMENTO. EL CONSUMO DE ESTE PRODUCTO ES RESPONSABILIDAD DE QUIEN LO RECOMIENDA Y DE QUIEN LO USA.</strong></p>"
+            "text": "<p><strong>ESTE PRODUCTO NO ES UN MEDICAMENTO. EL CONSUMO DE ESTE PRODUCTO ES RESPONSABILIDAD DE QUIEN LO RECOMIENDA Y DE QUIEN LO USA.</strong></p>"
           }
         }
       },
