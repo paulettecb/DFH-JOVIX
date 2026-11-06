@@ -83,69 +83,6 @@
         "padding_bottom": 56
       }
     },
-    "beneficios": {
-      "type": "multicolumn",
-      "blocks": {
-        "b-0": {
-          "type": "column",
-          "settings": {
-            "title": "Desde la raíz",
-            "text": "<p>Nutrientes que el folículo necesita para trabajar bien.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "b-1": {
-          "type": "column",
-          "settings": {
-            "title": "Antioxidante",
-            "text": "<p>Zinc y selenio aminoquelados, de mejor absorción.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "b-2": {
-          "type": "column",
-          "settings": {
-            "title": "Cabello, piel y uñas",
-            "text": "<p>Biotina, B6 y ácido fólico.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "b-3": {
-          "type": "column",
-          "settings": {
-            "title": "Criterio médico",
-            "text": "<p>Diseñado en consulta por un tricólogo.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "b-0",
-        "b-1",
-        "b-2",
-        "b-3"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 4,
-        "column_alignment": "left",
-        "background_style": "none",
-        "color_scheme": "scheme-4",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 56,
-        "padding_bottom": 56
-      }
-    },
     "porque": {
       "type": "rich-text",
       "blocks": {
@@ -480,71 +417,43 @@
         "padding_bottom": 28
       }
     },
-    "spotlight": {
-      "type": "jauiri-spotlight",
+    "experiencia": {
+      "type": "jauiri-experience",
       "blocks": {
         "ing-0": {
           "type": "ingredient",
           "settings": {
+            "fallback": "jauiri-cola-de-caballo.webp",
+            "eyebrow": "Extracto natural",
             "name": "Cola de caballo",
-            "text": "Silicio natural",
-            "side": "left"
+            "text": "Silicio natural para cabello y uñas"
           }
         },
         "ing-1": {
           "type": "ingredient",
           "settings": {
-            "name": "Biotina",
-            "text": "La vitamina del cabello",
-            "side": "right"
+            "fallback": "jauiri-minerales.webp",
+            "eyebrow": "Minerales aminoquelados",
+            "name": "Zinc + Selenio",
+            "text": "Fuerza y protección antioxidante"
           }
         },
         "ing-2": {
           "type": "ingredient",
           "settings": {
-            "name": "Myo-inositol",
-            "text": "Equilibrio celular",
-            "side": "left"
+            "fallback": "jauiri-vitaminas.webp",
+            "eyebrow": "Complejo B",
+            "name": "Biotina, B6 y ácido fólico",
+            "text": "Renovación del folículo"
           }
         },
         "ing-3": {
           "type": "ingredient",
           "settings": {
-            "name": "L-metionina",
-            "text": "Base de la queratina",
-            "side": "right"
-          }
-        },
-        "ing-4": {
-          "type": "ingredient",
-          "settings": {
-            "name": "Zinc aminoquelado",
-            "text": "Cabello y uñas fuertes",
-            "side": "left"
-          }
-        },
-        "ing-5": {
-          "type": "ingredient",
-          "settings": {
-            "name": "Selenio aminoquelado",
-            "text": "Antioxidante",
-            "side": "right"
-          }
-        },
-        "ing-6": {
-          "type": "ingredient",
-          "settings": {
-            "name": "Vitamina B6",
-            "text": "Aprovecha las proteínas",
-            "side": "left"
-          }
-        },
-        "ing-7": {
-          "type": "ingredient",
-          "settings": {
-            "name": "Ácido fólico",
-            "text": "Renovación del folículo",
-            "side": "right"
+            "fallback": "jauiri-cabello-mechon.webp",
+            "eyebrow": "Aminoácido + inositol",
+            "name": "L-metionina + Myo-inositol",
+            "text": "La base de la queratina"
           }
         }
       },
@@ -552,28 +461,58 @@
         "ing-0",
         "ing-1",
         "ing-2",
-        "ing-3",
-        "ing-4",
-        "ing-5",
-        "ing-6",
-        "ing-7"
+        "ing-3"
       ],
       "settings": {
-        "caption": "DFH JOVIX",
-        "heading": "Jauiri",
-        "subheading": "Ocho ingredientes, un solo propósito.",
-        "background": "#0B0812",
-        "button_label": "Quiero mi Jauiri",
-        "button_link": "shopify://products/jauiri"
+        "word": "JAUIRI",
+        "line_1": "Nutrición para tu cabello, <em>desde la raíz</em>.",
+        "line_2": "Ocho nutrientes. Una sola cápsula.",
+        "line_3": "Cada ingrediente tiene <em>un trabajo</em>.",
+        "cta_label": "Quiero mi Jauiri",
+        "cta_link": "shopify://products/jauiri",
+        "hint": "Desliza"
+      }
+    },
+    "adentro": {
+      "type": "jauiri-cinematic",
+      "settings": {
+        "fallback": "jauiri-capsula-abierta.webp",
+        "alt": "Cápsula de Jauiri abierta con el polvo saliendo",
+        "eyebrow": "LO QUE HAY ADENTRO",
+        "heading": "Polvo fino, <em>fórmula precisa</em>.",
+        "text": "<p>Vitaminas, minerales aminoquelados y extractos naturales, en las proporciones que eligió un tricólogo.</p>",
+        "align": "center"
+      }
+    },
+    "resultado": {
+      "type": "jauiri-cinematic",
+      "settings": {
+        "fallback": "jauiri-cabello.webp",
+        "alt": "Cabello largo, sano y con brillo en movimiento",
+        "eyebrow": "EL RESULTADO",
+        "heading": "Cabello fuerte, con brillo <em>y con movimiento</em>.",
+        "text": "<p>El cabello crece despacio: con constancia diaria, el cambio se empieza a notar a partir del tercer mes.</p>",
+        "align": "left"
+      }
+    },
+    "giro": {
+      "type": "jauiri-360",
+      "settings": {
+        "eyebrow": "360°",
+        "line_1": "Míralo desde <em>todos los ángulos</em>.",
+        "line_2": "Ábrelo. <em>Empieza tu rutina.</em>",
+        "frames": 80
       }
     }
   },
   "order": [
-    "spotlight",
+    "experiencia",
     "producto",
-    "beneficios",
+    "giro",
+    "adentro",
     "porque",
     "formula",
+    "resultado",
     "doctor",
     "uso",
     "faq",

@@ -1,0 +1,350 @@
+{%- comment -%}
+  DFH JOVIX · Experiencia Jauiri (scroll cinematográfico)
+  Una sola escena fija que avanza con el scroll:
+    1. Entrada: el frasco sale de la oscuridad, "JAUIRI" gigante detrás.
+    2. Se abre: la tapa sube y las cápsulas salen flotando.
+    3. Ingredientes: cada ingrediente entra volando y se acomoda alrededor.
+    4. Cierre: botón de compra.
+  Además: el fondo se mueve más lento (profundidad), los objetos flotan
+  solos y en escritorio la escena sigue ligeramente al cursor.
+  Con "reducir movimiento" se muestra la escena final, quieta.
+{%- endcomment -%}
+
+<section id="jvx-{{ section.id }}" class="jvx" data-jvx>
+  <div class="jvx__stage">
+    <picture class="jvx__bg" data-depth="0.15">
+      <source media="(max-width: 749px)" srcset="{{ 'jauiri-fondo-vertical.webp' | asset_url }}">
+      <img src="{{ 'jauiri-fondo.webp' | asset_url }}" alt="" width="1672" height="941" loading="eager" fetchpriority="high">
+    </picture>
+    <div class="jvx__vignette" aria-hidden="true"></div>
+
+    <div class="jvx__word" aria-hidden="true" data-depth="0.25"><span>{{ section.settings.word | escape }}</span></div>
+    <div class="jvx__glow" aria-hidden="true"></div>
+
+    {%- comment -%} Cápsulas que salen del frasco {%- endcomment -%}
+    {%- for i in (1..4) -%}
+      <div class="jvx__cap jvx__cap--{{ i }}" data-cap="{{ i }}" aria-hidden="true">
+        <div class="jvx__par" data-depth="0.9">
+          <img class="jvx__floaty" src="{{ 'jauiri-capsula-' | append: i | append: '.webp' | asset_url }}" alt="" loading="eager">
+        </div>
+      </div>
+    {%- endfor -%}
+
+    {%- comment -%} Frasco: cerrado → abierto + tapa {%- endcomment -%}
+    <div class="jvx__jar" data-jar>
+      <div class="jvx__par" data-depth="0.45">
+        <div class="jvx__jarbox">
+          <img class="jvx__closed" src="{{ 'jauiri-frasco.webp' | asset_url }}" alt="Frasco de Jauiri de DFH JOVIX" width="826" height="942" loading="eager">
+          <img class="jvx__open" src="{{ 'jauiri-frasco-abierto.webp' | asset_url }}" alt="" width="625" height="790" loading="eager" aria-hidden="true">
+          <img class="jvx__lid" src="{{ 'jauiri-tapa.webp' | asset_url }}" alt="" width="607" height="201" loading="eager" aria-hidden="true">
+        </div>
+      </div>
+    </div>
+
+    {%- comment -%} Ingredientes {%- endcomment -%}
+    {%- for block in section.blocks -%}
+      <figure class="jvx__ing jvx__ing--{{ forloop.index }}" data-ing="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+        <div class="jvx__par" data-depth="0.7">
+          <div class="jvx__floaty">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 900 | image_tag: class: 'jvx__ingimg', loading: 'eager', alt: '' }}
+            {%- elsif block.settings.fallback != blank -%}
+              <img class="jvx__ingimg" src="{{ block.settings.fallback | asset_url }}" alt="" loading="eager">
+            {%- endif -%}
+          </div>
+        </div>
+        <figcaption class="jvx__cap-txt">
+          {%- if block.settings.eyebrow != blank -%}<span class="jvx__eyebrow">{{ block.settings.eyebrow | escape }}</span>{%- endif -%}
+          <strong>{{ block.settings.name | escape }}</strong>
+          {%- if block.settings.text != blank -%}<span>{{ block.settings.text | escape }}</span>{%- endif -%}
+        </figcaption>
+      </figure>
+    {%- endfor -%}
+
+    {%- comment -%} Frases de cada escena {%- endcomment -%}
+    <div class="jvx__lines">
+      <p class="jvx__line" data-line="1">{{ section.settings.line_1 }}</p>
+      <p class="jvx__line" data-line="2">{{ section.settings.line_2 }}</p>
+      <p class="jvx__line" data-line="3">{{ section.settings.line_3 }}</p>
+      {%- if section.settings.cta_label != blank -%}
+        <div class="jvx__line jvx__cta" data-line="4">
+          <a class="jvx__btn" href="{{ section.settings.cta_link | default: routes.all_products_collection_url }}">{{ section.settings.cta_label | escape }}</a>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="jvx__hint" aria-hidden="true"><span></span>{{ section.settings.hint | escape }}</div>
+  </div>
+</section>
+
+<style>
+  .jvx { position: relative; height: 760vh; background: #07050C; color: #fff; }
+  .jvx__stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; isolation: isolate; }
+
+  .jvx__bg, .jvx__bg img { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .jvx__bg img { object-fit: cover; transform: scale(var(--bg-s, 1.18)) translate3d(var(--px, 0), var(--py, 0), 0); will-change: transform; }
+  .jvx__vignette {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(70% 60% at 50% 52%, rgba(7,5,12,0) 0%, rgba(7,5,12,.35) 65%, rgba(7,5,12,.85) 100%),
+      linear-gradient(180deg, rgba(7,5,12,.55) 0%, rgba(7,5,12,0) 22%, rgba(7,5,12,0) 70%, rgba(7,5,12,.7) 100%);
+  }
+
+  /* Palabra gigante detrás del frasco */
+  .jvx__word {
+    position: absolute; left: 50%; top: 40%; transform: translate(-50%, -50%); pointer-events: none; white-space: nowrap;
+  }
+  .jvx__word span {
+    display: block; font-family: var(--font-heading-family); font-weight: 700; letter-spacing: -0.04em; line-height: .8;
+    font-size: clamp(9rem, 24vw, 42rem);
+    background: linear-gradient(180deg, rgba(255,255,255,.95) 0%, rgba(214,206,232,.55) 55%, rgba(214,206,232,0) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    opacity: var(--word-o, 0); transform: translate3d(var(--px, 0), var(--py, 0), 0) scale(var(--word-s, 1.12));
+    filter: blur(var(--word-b, 0px));
+  }
+
+  /* Halo de luz que respira detrás del frasco */
+  .jvx__glow {
+    position: absolute; left: 50%; top: 54%; width: min(70vw, 90svh); aspect-ratio: 1; transform: translate(-50%, -50%);
+    background: radial-gradient(closest-side, rgba(200,147,49,.28), rgba(132,88,224,.16) 45%, rgba(7,5,12,0) 72%);
+    opacity: var(--glow-o, 0); animation: jvxBreath 6s ease-in-out infinite; pointer-events: none;
+  }
+  @keyframes jvxBreath { 0%,100% { scale: 1; } 50% { scale: 1.08; } }
+
+  /* Capas con parallax por cursor */
+  .jvx__par { transform: translate3d(calc(var(--mx, 0) * var(--d, .5) * 1px), calc(var(--my, 0) * var(--d, .5) * 1px), 0); transition: transform .9s cubic-bezier(.22,1,.36,1); }
+  .jvx__floaty { animation: jvxFloat 7s ease-in-out infinite; }
+  @keyframes jvxFloat { 0%,100% { translate: 0 0; rotate: 0deg; } 50% { translate: 0 -10px; rotate: 1.2deg; } }
+
+  /* Frasco */
+  .jvx__jar {
+    --W: min(25vw, 40svh);
+    position: absolute; left: 50%; top: 58%; width: var(--W);
+    transform: translate(-50%, -50%) translate3d(0, var(--jar-y, 8vh), 0) scale(var(--jar-s, .72));
+    opacity: var(--jar-o, 0); will-change: transform, opacity;
+    filter: drop-shadow(0 40px 60px rgba(0,0,0,.65));
+  }
+  .jvx__jarbox { position: relative; width: 100%; aspect-ratio: 826 / 942; }
+  .jvx__closed, .jvx__open, .jvx__lid { position: absolute; display: block; max-width: none; }
+  .jvx__open, .jvx__lid { height: auto; }
+  .jvx__closed { inset: 0; width: 100%; height: 100%; opacity: var(--closed-o, 1); }
+  .jvx__open { left: -3.5%; bottom: 0; width: 107%; max-width: none; opacity: var(--open-o, 0); }
+  .jvx__lid {
+    left: 0; top: 0; width: 100%; opacity: var(--lid-o, 0);
+    transform: translate3d(var(--lid-x, 0), var(--lid-y, 0), 0) rotate(var(--lid-r, 0deg));
+  }
+
+  /* Cápsulas */
+  .jvx__cap { position: absolute; left: 50%; top: 40%; width: clamp(64px, 7vw, 130px); pointer-events: none;
+    transform: translate(-50%, -50%) translate3d(var(--cx, 0), var(--cy, 0), 0) rotate(var(--cr, 0deg)) scale(var(--cs, .2));
+    opacity: var(--co, 0); filter: blur(var(--cb, 0px)); will-change: transform, opacity; }
+  .jvx__cap img { width: 100%; height: auto; display: block; }
+  .jvx__cap--2 .jvx__floaty { animation-delay: -2s; } .jvx__cap--3 .jvx__floaty { animation-delay: -4s; } .jvx__cap--4 .jvx__floaty { animation-delay: -1s; }
+
+  /* Ingredientes */
+  .jvx__ing { position: absolute; margin: 0; width: var(--iw, 15vw); display: flex; flex-direction: column; align-items: center; text-align: center; pointer-events: none;
+    left: var(--ix); top: var(--iy);
+    transform: translate(-50%, -50%) translate3d(var(--fx, 0), var(--fy, 0), 0) rotate(var(--fr, 0deg)) scale(var(--fs, .5));
+    opacity: var(--fo, 0); filter: blur(var(--fb, 0px)); will-change: transform, opacity; }
+  .jvx__ingimg { width: 100%; height: auto; display: block; filter: drop-shadow(0 20px 40px rgba(0,0,0,.55)); }
+  .jvx__ing--1 { --ix: 17%; --iy: 33%; --iw: 13vw; }
+  .jvx__ing--2 { --ix: 83%; --iy: 30%; --iw: 16vw; }
+  .jvx__ing--3 { --ix: 17%; --iy: 74%; --iw: 15vw; }
+  .jvx__ing--4 { --ix: 83%; --iy: 72%; --iw: 20vw; }
+  .jvx__ing--2 .jvx__floaty { animation-delay: -3s; } .jvx__ing--3 .jvx__floaty { animation-delay: -5s; } .jvx__ing--4 .jvx__floaty { animation-delay: -1.5s; }
+  .jvx__cap-txt { margin-top: 10px; display: flex; flex-direction: column; gap: 2px; opacity: var(--to, 0); transform: translateY(calc((1 - var(--to, 0)) * 10px)); text-shadow: 0 2px 14px rgba(0,0,0,.8); }
+  .jvx__eyebrow { font-size: 1.05rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: #C89331; }
+  .jvx__cap-txt strong { font-family: var(--font-heading-family); font-weight: 700; font-size: clamp(1.6rem, 1.45vw, 2.2rem); line-height: 1.15; color: #fff; }
+  .jvx__cap-txt > span:last-child:not(.jvx__eyebrow) { font-size: clamp(1.25rem, 1vw, 1.5rem); color: rgba(255,255,255,.75); line-height: 1.35; }
+
+  /* Frases */
+  .jvx__lines { position: absolute; left: 0; right: 0; bottom: 7svh; display: grid; place-items: center; pointer-events: none; padding: 0 16px; }
+  .jvx__line {
+    grid-area: 1 / 1; margin: 0; text-align: center; max-width: 24ch;
+    font-family: var(--font-heading-family); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1;
+    font-size: clamp(2.4rem, 3.2vw, 4.6rem); color: #fff;
+    opacity: 0; transform: translateY(18px); filter: blur(8px);
+    transition: opacity .6s ease, transform .8s cubic-bezier(.22,1,.36,1), filter .6s ease;
+  }
+  .jvx__line em { font-style: italic; color: #E2B85C; }
+  .jvx__line.is-on { opacity: 1; transform: none; filter: none; }
+  .jvx__cta { max-width: none; pointer-events: auto; line-height: 1; }
+  .jvx__btn {
+    display: inline-flex; align-items: center; justify-content: center; min-height: 56px; padding: 16px 34px; border-radius: 12px;
+    background: #fff; color: #1F4E6B; font-family: var(--font-body-family); font-weight: 700; font-size: 1.7rem; text-decoration: none; letter-spacing: 0;
+    box-shadow: 0 14px 40px -10px rgba(200,147,49,.55); transition: transform .2s ease, box-shadow .3s ease;
+  }
+  .jvx__btn:hover { transform: translateY(-2px); box-shadow: 0 18px 50px -10px rgba(200,147,49,.8); }
+
+  .jvx__hint { position: absolute; left: 50%; bottom: 24px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px;
+    font-size: 1.1rem; letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.6); opacity: var(--hint-o, 1); transition: opacity .4s; }
+  .jvx__hint span { width: 1.5px; height: 34px; background: linear-gradient(#C89331, rgba(200,147,49,0)); animation: jvxHint 1.8s ease-in-out infinite; }
+  @keyframes jvxHint { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+
+  /* Celular */
+  @media screen and (max-width: 749px) {
+    .jvx { height: 640vh; }
+    .jvx__jar { --W: min(46vw, 30svh); top: 52%; }
+    .jvx__word { top: 30%; }
+    .jvx__glow { top: 50%; width: 110vw; }
+    .jvx__cap { width: 15vw; top: 36%; }
+    .jvx__ing--1 { --ix: 22%; --iy: 21%; --iw: 30vw; }
+    .jvx__ing--2 { --ix: 78%; --iy: 20%; --iw: 34vw; }
+    .jvx__ing--3 { --ix: 22%; --iy: 76%; --iw: 32vw; }
+    .jvx__ing--4 { --ix: 78%; --iy: 77%; --iw: 40vw; }
+    .jvx__cap-txt { margin-top: 4px; }
+    .jvx__cap-txt > span:last-child:not(.jvx__eyebrow) { display: none; }
+    .jvx__eyebrow { font-size: .9rem; letter-spacing: .16em; }
+    .jvx__cap-txt strong { font-size: 1.4rem; }
+    .jvx__lines { bottom: 3.5svh; }
+    .jvx__line { font-size: 2.2rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .jvx { height: auto; }
+    .jvx__stage { position: relative; height: 100svh; min-height: 640px; }
+    .jvx__glow, .jvx__floaty, .jvx__hint span { animation: none; }
+    .jvx__line, .jvx__par { transition: none; }
+  }
+</style>
+
+<script>
+  (function () {
+    var root = document.getElementById('jvx-{{ section.id }}');
+    if (!root) return;
+    var stage = root.querySelector('.jvx__stage');
+    var jar = root.querySelector('[data-jar]');
+    var caps = Array.prototype.slice.call(root.querySelectorAll('[data-cap]'));
+    var ings = Array.prototype.slice.call(root.querySelectorAll('[data-ing]'));
+    var lines = Array.prototype.slice.call(root.querySelectorAll('[data-line]'));
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+    function seg(p, a, b) { return clamp((p - a) / (b - a)); }
+    function ease(t) { return 1 - Math.pow(1 - t, 3); }
+    function easeIO(t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+    function set(el, k, v) { el.style.setProperty(k, v); }
+
+    // Destino de cada cápsula (en vw/vh relativos al centro del frasco)
+    var capTo = [[-30, -16, -38], [26, -24, 24], [-24, 18, 62], [30, 14, -20]];
+    // Desde dónde entra cada ingrediente
+    var ingFrom = [[-40, -20, -25], [40, -24, 22], [-42, 24, 18], [44, 22, -16]];
+
+    function render(p) {
+      var mobile = window.innerWidth < 750;
+      // Fondo y halo
+      set(stage, '--bg-s', (1.18 - 0.14 * ease(seg(p, 0, 1))).toFixed(4));
+      set(stage, '--glow-o', (ease(seg(p, 0.02, 0.14))).toFixed(3));
+      set(stage, '--hint-o', (1 - seg(p, 0.01, 0.05)).toFixed(3));
+
+      // 1 · Entrada
+      var a = ease(seg(p, 0, 0.13));
+      var word = a * (1 - 0.86 * seg(p, 0.34, 0.44));
+      set(stage, '--word-o', word.toFixed(3));
+      set(stage, '--word-s', (1.12 - 0.12 * a + 0.06 * seg(p, 0.34, 0.5)).toFixed(4));
+      set(stage, '--word-b', (6 * seg(p, 0.34, 0.5)).toFixed(2) + 'px');
+      var shrink = 0.12 * easeIO(seg(p, 0.36, 0.5));
+      set(jar, '--jar-o', a.toFixed(3));
+      set(jar, '--jar-s', (0.72 + 0.28 * a - shrink).toFixed(4));
+      set(jar, '--jar-y', ((1 - a) * 8).toFixed(2) + 'vh');
+
+      // 2 · Se abre
+      var sw = seg(p, 0.17, 0.19);
+      set(jar, '--closed-o', (1 - sw).toFixed(3));
+      set(jar, '--open-o', sw.toFixed(3));
+      var l = easeIO(seg(p, 0.18, 0.32));
+      set(jar, '--lid-o', (sw * (1 - seg(p, 0.27, 0.33))).toFixed(3));
+      set(jar, '--lid-y', (-l * (mobile ? 34 : 46)).toFixed(2) + 'vh');
+      set(jar, '--lid-x', (l * 6).toFixed(2) + 'vw');
+      set(jar, '--lid-r', (l * 22).toFixed(2) + 'deg');
+
+      caps.forEach(function (c, i) {
+        var t = ease(seg(p, 0.2 + i * 0.02, 0.34 + i * 0.02));
+        var drift = seg(p, 0.38, 0.6);
+        var to = capTo[i];
+        var k = mobile ? 1.15 : 1;
+        set(c, '--cx', (to[0] * t * k * (1 + 0.35 * drift)).toFixed(2) + 'vw');
+        set(c, '--cy', (to[1] * t * (1 + 0.35 * drift)).toFixed(2) + 'vh');
+        set(c, '--cr', (to[2] * t + 40 * drift * (i % 2 ? 1 : -1)).toFixed(1) + 'deg');
+        set(c, '--cs', (0.2 + 0.8 * t + 0.2 * drift).toFixed(3));
+        set(c, '--co', (t * (1 - 0.7 * drift)).toFixed(3));
+        set(c, '--cb', (5 * drift).toFixed(2) + 'px');
+      });
+
+      // 3 · Ingredientes
+      ings.forEach(function (el, i) {
+        var s0 = 0.4 + i * 0.1;
+        var t = ease(seg(p, s0, s0 + 0.1));
+        var f = ingFrom[i % 4];
+        set(el, '--fx', ((1 - t) * f[0]).toFixed(2) + 'vw');
+        set(el, '--fy', ((1 - t) * f[1]).toFixed(2) + 'vh');
+        set(el, '--fr', ((1 - t) * f[2]).toFixed(1) + 'deg');
+        set(el, '--fs', (0.45 + 0.55 * t).toFixed(3));
+        set(el, '--fo', t.toFixed(3));
+        set(el, '--fb', ((1 - t) * 14).toFixed(2) + 'px');
+        set(el, '--to', seg(p, s0 + 0.06, s0 + 0.1).toFixed(3));
+      });
+
+      // Frases
+      var on = p < 0.16 ? 1 : p < 0.36 ? 2 : p < 0.86 ? 3 : 4;
+      lines.forEach(function (ln) { ln.classList.toggle('is-on', Number(ln.dataset.line) === on); });
+    }
+
+    function progress() {
+      var r = root.getBoundingClientRect();
+      var range = root.offsetHeight - window.innerHeight;
+      return range > 0 ? clamp(-r.top / range) : 1;
+    }
+
+    if (reduce) { render(1); return; }
+
+    var ticking = false;
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(function () { ticking = false; render(progress()); }); } }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    render(progress());
+
+    // La escena sigue un poco al cursor (solo con mouse)
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      root.querySelectorAll('[data-depth]').forEach(function (el) { el.style.setProperty('--d', el.dataset.depth); });
+      stage.addEventListener('pointermove', function (e) {
+        var x = (e.clientX / window.innerWidth - 0.5) * -36;
+        var y = (e.clientY / window.innerHeight - 0.5) * -24;
+        set(stage, '--mx', x.toFixed(2)); set(stage, '--my', y.toFixed(2));
+        set(stage, '--px', (x * 0.25).toFixed(2) + 'px'); set(stage, '--py', (y * 0.25).toFixed(2) + 'px');
+      });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Experiencia Jauiri",
+  "tag": "div",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "word", "label": "Palabra gigante", "default": "JAUIRI" },
+    { "type": "inline_richtext", "id": "line_1", "label": "Frase 1 (entrada)", "default": "Nutrición para tu cabello, <em>desde la raíz</em>." },
+    { "type": "inline_richtext", "id": "line_2", "label": "Frase 2 (se abre)", "default": "Ocho nutrientes. Una sola cápsula." },
+    { "type": "inline_richtext", "id": "line_3", "label": "Frase 3 (ingredientes)", "default": "Cada ingrediente tiene <em>un trabajo</em>." },
+    { "type": "text", "id": "cta_label", "label": "Botón final", "default": "Quiero mi Jauiri" },
+    { "type": "url", "id": "cta_link", "label": "Enlace del botón" },
+    { "type": "text", "id": "hint", "label": "Texto de 'desliza'", "default": "Desliza" }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingrediente",
+      "limit": 4,
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Imagen (PNG sin fondo)" },
+        { "type": "text", "id": "fallback", "label": "Imagen del tema (nombre de archivo)", "info": "Se usa si no eliges imagen." },
+        { "type": "text", "id": "eyebrow", "label": "Texto pequeño" },
+        { "type": "text", "id": "name", "label": "Nombre", "default": "Ingrediente" },
+        { "type": "text", "id": "text", "label": "Para qué sirve" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "Experiencia Jauiri" } ]
+}
+{% endschema %}
