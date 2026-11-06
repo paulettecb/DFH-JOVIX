@@ -25,7 +25,7 @@
     {%- for i in (1..4) -%}
       <div class="jvx__cap jvx__cap--{{ i }}" data-cap="{{ i }}" aria-hidden="true">
         <div class="jvx__par" data-depth="0.9">
-          <img class="jvx__floaty" src="{{ 'jauiri-capsula-' | append: i | append: '.webp' | asset_url }}" alt="" loading="eager">
+          <img class="jvx__floaty" src="{{ 'jauiri-capsula-' | append: i | append: '.webp' | asset_url }}" alt="" width="800" height="800" loading="eager">
         </div>
       </div>
     {%- endfor -%}
@@ -49,7 +49,7 @@
             {%- if block.settings.image != blank -%}
               {{ block.settings.image | image_url: width: 900 | image_tag: class: 'jvx__ingimg', loading: 'eager', alt: '' }}
             {%- elsif block.settings.fallback != blank -%}
-              <img class="jvx__ingimg" src="{{ block.settings.fallback | asset_url }}" alt="" loading="eager">
+              <img class="jvx__ingimg" src="{{ block.settings.fallback | asset_url }}" alt="" width="1000" height="800" loading="eager">
             {%- endif -%}
           </div>
         </div>
@@ -138,7 +138,7 @@
   .jvx__cap { position: absolute; left: 50%; top: 40%; width: clamp(64px, 7vw, 130px); pointer-events: none;
     transform: translate(-50%, -50%) translate3d(var(--cx, 0), var(--cy, 0), 0) rotate(var(--cr, 0deg)) scale(var(--cs, .2));
     opacity: var(--co, 0); filter: blur(var(--cb, 0px)); will-change: transform, opacity; }
-  .jvx__cap img { width: 100%; height: auto; display: block; }
+  .jvx__cap img { width: 100%; height: auto; display: block; max-width: none; }
   .jvx__cap--2 .jvx__floaty { animation-delay: -2s; } .jvx__cap--3 .jvx__floaty { animation-delay: -4s; } .jvx__cap--4 .jvx__floaty { animation-delay: -1s; }
 
   /* Ingredientes */

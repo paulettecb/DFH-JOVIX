@@ -9,7 +9,7 @@
     {%- if section.settings.image != blank -%}
       {{ section.settings.image | image_url: width: 2400 | image_tag: class: 'jvc__img', loading: 'lazy', sizes: '100vw', alt: section.settings.image.alt }}
     {%- elsif section.settings.fallback != blank -%}
-      <img class="jvc__img" src="{{ section.settings.fallback | asset_url }}" alt="{{ section.settings.alt | escape }}" loading="lazy">
+      <img class="jvc__img" src="{{ section.settings.fallback | asset_url }}" alt="{{ section.settings.alt | escape }}" width="1672" height="941" loading="lazy">
     {%- endif -%}
   </div>
   <div class="jvc__shade" aria-hidden="true"></div>
