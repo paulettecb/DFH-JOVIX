@@ -191,7 +191,7 @@
         "i-0": {
           "type": "column",
           "settings": {
-            "title": "Cola de caballo · 150 mg",
+            "title": "Cola de caballo",
             "text": "<p>Planta rica en silicio, mineral presente en la estructura del cabello y las uñas.</p>",
             "link_label": "",
             "link": ""
@@ -200,7 +200,7 @@
         "i-1": {
           "type": "column",
           "settings": {
-            "title": "Biotina (B7) · 30 mcg",
+            "title": "Biotina (B7)",
             "text": "<p>Contribuye al mantenimiento normal del cabello y la piel.</p>",
             "link_label": "",
             "link": ""
@@ -209,7 +209,7 @@
         "i-2": {
           "type": "column",
           "settings": {
-            "title": "Myo-inositol · 50 mg",
+            "title": "Myo-inositol",
             "text": "<p>Participa en la señalización de las células y en el equilibrio metabólico.</p>",
             "link_label": "",
             "link": ""
@@ -218,7 +218,7 @@
         "i-3": {
           "type": "column",
           "settings": {
-            "title": "L-metionina · 50 mg",
+            "title": "L-metionina",
             "text": "<p>Aminoácido con azufre que el cuerpo usa para formar queratina.</p>",
             "link_label": "",
             "link": ""
@@ -227,7 +227,7 @@
         "i-4": {
           "type": "column",
           "settings": {
-            "title": "Zinc aminoquelado · 10 mg",
+            "title": "Zinc aminoquelado",
             "text": "<p>Contribuye al mantenimiento normal del cabello y las uñas.</p>",
             "link_label": "",
             "link": ""
@@ -236,7 +236,7 @@
         "i-5": {
           "type": "column",
           "settings": {
-            "title": "Selenio aminoquelado · 100 mcg",
+            "title": "Selenio aminoquelado",
             "text": "<p>Antioxidante que contribuye al mantenimiento normal del cabello.</p>",
             "link_label": "",
             "link": ""
@@ -245,7 +245,7 @@
         "i-6": {
           "type": "column",
           "settings": {
-            "title": "Vitamina B6 · 1.6 mg",
+            "title": "Vitamina B6",
             "text": "<p>Interviene en el aprovechamiento de las proteínas.</p>",
             "link_label": "",
             "link": ""
@@ -254,7 +254,7 @@
         "i-7": {
           "type": "column",
           "settings": {
-            "title": "Ácido fólico (B9) · 400 mcg",
+            "title": "Ácido fólico (B9)",
             "text": "<p>Esencial para la división celular, con la que el folículo produce cabello nuevo.</p>",
             "link_label": "",
             "link": ""
@@ -479,9 +479,97 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "spotlight": {
+      "type": "jauiri-spotlight",
+      "blocks": {
+        "ing-0": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Cola de caballo",
+            "text": "Silicio natural",
+            "side": "left"
+          }
+        },
+        "ing-1": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Biotina",
+            "text": "La vitamina del cabello",
+            "side": "right"
+          }
+        },
+        "ing-2": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Myo-inositol",
+            "text": "Equilibrio celular",
+            "side": "left"
+          }
+        },
+        "ing-3": {
+          "type": "ingredient",
+          "settings": {
+            "name": "L-metionina",
+            "text": "Base de la queratina",
+            "side": "right"
+          }
+        },
+        "ing-4": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Zinc aminoquelado",
+            "text": "Cabello y uñas fuertes",
+            "side": "left"
+          }
+        },
+        "ing-5": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Selenio aminoquelado",
+            "text": "Antioxidante",
+            "side": "right"
+          }
+        },
+        "ing-6": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Vitamina B6",
+            "text": "Aprovecha las proteínas",
+            "side": "left"
+          }
+        },
+        "ing-7": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Ácido fólico",
+            "text": "Renovación del folículo",
+            "side": "right"
+          }
+        }
+      },
+      "block_order": [
+        "ing-0",
+        "ing-1",
+        "ing-2",
+        "ing-3",
+        "ing-4",
+        "ing-5",
+        "ing-6",
+        "ing-7"
+      ],
+      "settings": {
+        "caption": "DFH JOVIX",
+        "heading": "Jauiri",
+        "subheading": "Ocho ingredientes, un solo propósito.",
+        "background": "#0B0812",
+        "button_label": "Quiero mi Jauiri",
+        "button_link": "shopify://products/jauiri"
+      }
     }
   },
   "order": [
+    "spotlight",
     "producto",
     "beneficios",
     "porque",
