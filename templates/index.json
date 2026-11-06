@@ -492,7 +492,8 @@
         "eyebrow": "EL RESULTADO",
         "heading": "Cabello fuerte, con brillo <em>y con movimiento</em>.",
         "text": "<p>El cabello crece despacio: con constancia diaria, el cambio se empieza a notar a partir del tercer mes.</p>",
-        "align": "left"
+        "align": "left",
+        "fallback_mobile": "jauiri-cabello-vertical.webp"
       }
     },
     "giro": {

@@ -9,7 +9,10 @@
     {%- if section.settings.image != blank -%}
       {{ section.settings.image | image_url: width: 2400 | image_tag: class: 'jvc__img', loading: 'lazy', sizes: '100vw', alt: section.settings.image.alt }}
     {%- elsif section.settings.fallback != blank -%}
-      <img class="jvc__img" src="{{ section.settings.fallback | asset_url }}" alt="{{ section.settings.alt | escape }}" width="1672" height="941" loading="lazy">
+      <picture>
+        {%- if section.settings.fallback_mobile != blank -%}<source media="(max-width: 749px)" srcset="{{ section.settings.fallback_mobile | asset_url }}">{%- endif -%}
+        <img class="jvc__img" src="{{ section.settings.fallback | asset_url }}" alt="{{ section.settings.alt | escape }}" width="1672" height="941" loading="lazy">
+      </picture>
     {%- endif -%}
   </div>
   <div class="jvc__shade" aria-hidden="true"></div>
@@ -89,6 +92,7 @@
   "settings": [
     { "type": "image_picker", "id": "image", "label": "Imagen" },
     { "type": "text", "id": "fallback", "label": "Imagen del tema (nombre de archivo)", "info": "Se usa si no eliges imagen." },
+    { "type": "text", "id": "fallback_mobile", "label": "Imagen del tema para celular (opcional)" },
     { "type": "text", "id": "alt", "label": "Descripción de la imagen" },
     { "type": "text", "id": "eyebrow", "label": "Texto pequeño" },
     { "type": "inline_richtext", "id": "heading", "label": "Título", "default": "Título" },
