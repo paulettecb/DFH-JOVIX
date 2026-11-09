@@ -84,42 +84,15 @@
       }
     },
     "porque": {
-      "type": "rich-text",
-      "blocks": {
-        "c": {
-          "type": "caption",
-          "settings": {
-            "caption": "POR QUÉ JAUIRI",
-            "text_style": "caption-with-letter-spacing",
-            "text_size": "medium"
-          }
-        },
-        "h": {
-          "type": "heading",
-          "settings": {
-            "heading": "Tu cabello es lo primero que <em>resiente</em> lo que le falta.",
-            "heading_size": "h1"
-          }
-        },
-        "t": {
-          "type": "text",
-          "settings": {
-            "text": "<p>El folículo es de los tejidos que más rápido se renuevan en el cuerpo, y por eso es de los primeros en notar el estrés, una mala racha de alimentación o una deficiencia. El resultado se ve: cabello más delgado, opaco o que se cae más de lo normal.</p><p>Jauiri reúne en una sola fórmula los nutrientes que tu folículo necesita para trabajar bien.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "c",
-        "h",
-        "t"
-      ],
+      "type": "jauiri-cinematic",
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "padding_top": 64,
-        "padding_bottom": 40
+        "fallback": "jauiri-linea-cabello.webp",
+        "fallback_mobile": "",
+        "alt": "Línea del cabello de un hombre con cabello denso y sano",
+        "eyebrow": "POR QUÉ JAUIRI",
+        "heading": "Tu cabello es lo primero que <em>resiente</em> lo que le falta.",
+        "text": "<p>El folículo es de los tejidos que más rápido se renuevan en el cuerpo, y por eso es de los primeros en notar el estrés, una mala racha de alimentación o una deficiencia. Jauiri reúne en una sola fórmula los nutrientes que tu folículo necesita para trabajar bien.</p>",
+        "align": "left"
       }
     },
     "formula": {
