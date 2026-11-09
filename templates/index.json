@@ -26,7 +26,7 @@
         "sub": {
           "type": "text",
           "settings": {
-            "text": "Ocho nutrientes en una sola cápsula, diseñados por un tricólogo que quiere verte bien. Vitaminas, minerales aminoquelados y extractos naturales para un cabello fuerte, con brillo y con densidad.",
+            "text": "Ocho nutrientes en una sola cápsula, pensados para tu cabello. Vitaminas, minerales aminoquelados y extractos naturales para un cabello fuerte, con brillo y con densidad.",
             "text_style": "subtitle"
           }
         },
@@ -54,7 +54,7 @@
             "icon_2": "plant",
             "heading_2": "Minerales aminoquelados",
             "icon_3": "check_mark",
-            "heading_3": "Formulado por tricólogo"
+            "heading_3": "8 activos en una cápsula"
           }
         }
       },
@@ -104,7 +104,7 @@
         "t": {
           "type": "text",
           "settings": {
-            "text": "<p>El folículo es de los tejidos que más rápido se renuevan en el cuerpo, y por eso es de los primeros en notar el estrés, una mala racha de alimentación o una deficiencia. El resultado se ve: cabello más delgado, opaco o que se cae más de lo normal.</p><p>En consulta, el Dr. Cambrón ve esto todos los días. Jauiri reúne en una sola fórmula los nutrientes que tu folículo necesita para trabajar bien.</p>"
+            "text": "<p>El folículo es de los tejidos que más rápido se renuevan en el cuerpo, y por eso es de los primeros en notar el estrés, una mala racha de alimentación o una deficiencia. El resultado se ve: cabello más delgado, opaco o que se cae más de lo normal.</p><p>Jauiri reúne en una sola fórmula los nutrientes que tu folículo necesita para trabajar bien.</p>"
           }
         }
       },
@@ -223,57 +223,6 @@
         "swipe_on_mobile": false,
         "padding_top": 56,
         "padding_bottom": 56
-      }
-    },
-    "doctor": {
-      "type": "rich-text",
-      "blocks": {
-        "c": {
-          "type": "caption",
-          "settings": {
-            "caption": "RESPALDO MÉDICO",
-            "text_style": "caption-with-letter-spacing",
-            "text_size": "medium"
-          }
-        },
-        "h": {
-          "type": "heading",
-          "settings": {
-            "heading": "Creado por un tricólogo.",
-            "heading_size": "h1"
-          }
-        },
-        "t": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Jauiri nace en la consulta del Dr. Jorge Cambrón Barrales, médico especialista en tricología integral (Cédula Profesional 13107981). Desde la medicina funcional, su trabajo es encontrar el <em>porqué</em> de cada caída. Jauiri lleva esa experiencia de consulta a una sola cápsula.</p>"
-          }
-        },
-        "b": {
-          "type": "button",
-          "settings": {
-            "button_label": "Conocer al doctor",
-            "button_link": "https://paulettecb.github.io/drjorgecambr-n-tricolog-a/",
-            "button_style_secondary": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "c",
-        "h",
-        "t",
-        "b"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-6",
-        "full_width": false,
-        "padding_top": 64,
-        "padding_bottom": 64
       }
     },
     "uso": {
@@ -476,45 +425,47 @@
     "adentro": {
       "type": "jauiri-cinematic",
       "settings": {
-        "fallback": "jauiri-capsula-abierta.webp",
+        "fallback": "jauiri-capsula-abierta-marino.webp",
         "alt": "Cápsula de Jauiri abierta con el polvo saliendo",
         "eyebrow": "LO QUE HAY ADENTRO",
         "heading": "Polvo fino, <em>fórmula precisa</em>.",
-        "text": "<p>Vitaminas, minerales aminoquelados y extractos naturales, en las proporciones que eligió un tricólogo.</p>",
+        "text": "<p>Vitaminas, minerales aminoquelados y extractos naturales, en una fórmula pensada para tu cabello.</p>",
         "align": "center"
       }
     },
     "resultado": {
       "type": "jauiri-cinematic",
       "settings": {
-        "fallback": "jauiri-cabello.webp",
+        "fallback": "jauiri-cabello-mujer.webp",
         "alt": "Cabello largo, sano y con brillo en movimiento",
         "eyebrow": "EL RESULTADO",
         "heading": "Cabello fuerte, con brillo <em>y con movimiento</em>.",
         "text": "<p>El cabello crece despacio: con constancia diaria, el cambio se empieza a notar a partir del tercer mes.</p>",
-        "align": "left",
-        "fallback_mobile": "jauiri-cabello-vertical.webp"
+        "align": "right",
+        "fallback_mobile": ""
       }
     },
-    "giro": {
-      "type": "jauiri-360",
+    "resultado-el": {
+      "type": "jauiri-cinematic",
       "settings": {
-        "eyebrow": "360°",
-        "line_1": "Míralo desde <em>todos los ángulos</em>.",
-        "line_2": "Ábrelo. <em>Empieza tu rutina.</em>",
-        "frames": 80
+        "fallback": "jauiri-cabello-hombre.webp",
+        "fallback_mobile": "",
+        "alt": "Hombre con cabello abundante y sano pasándose la mano por el cabello",
+        "eyebrow": "PARA ÉL TAMBIÉN",
+        "heading": "Más densidad, <em>más confianza</em>.",
+        "text": "<p>La caída también afecta a los hombres. La constancia diaria es la base para un cabello más fuerte.</p>",
+        "align": "left"
       }
     }
   },
   "order": [
     "experiencia",
     "producto",
-    "giro",
     "adentro",
     "porque",
     "formula",
     "resultado",
-    "doctor",
+    "resultado-el",
     "uso",
     "faq",
     "legal"

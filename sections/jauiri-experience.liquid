@@ -13,8 +13,7 @@
 <section id="jvx-{{ section.id }}" class="jvx" data-jvx>
   <div class="jvx__stage">
     <picture class="jvx__bg" data-depth="0.15">
-      <source media="(max-width: 749px)" srcset="{{ 'jauiri-fondo-vertical.webp' | asset_url }}">
-      <img src="{{ 'jauiri-fondo.webp' | asset_url }}" alt="" width="1672" height="941" loading="eager" fetchpriority="high">
+      <img src="{{ 'jauiri-fondo-marino.webp' | asset_url }}" alt="" width="1672" height="941" loading="eager" fetchpriority="high">
     </picture>
     <div class="jvx__vignette" aria-hidden="true"></div>
 
@@ -78,7 +77,7 @@
 </section>
 
 <style>
-  .jvx { position: relative; height: 760vh; background: #07050C; color: #fff; }
+  .jvx { position: relative; height: 760vh; background: #0E1824; color: #fff; }
   .jvx__stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; isolation: isolate; }
 
   .jvx__bg, .jvx__bg img { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -86,8 +85,8 @@
   .jvx__vignette {
     position: absolute; inset: 0; pointer-events: none;
     background:
-      radial-gradient(70% 60% at 50% 52%, rgba(7,5,12,0) 0%, rgba(7,5,12,.35) 65%, rgba(7,5,12,.85) 100%),
-      linear-gradient(180deg, rgba(7,5,12,.55) 0%, rgba(7,5,12,0) 22%, rgba(7,5,12,0) 70%, rgba(7,5,12,.7) 100%);
+      radial-gradient(70% 60% at 50% 52%, rgba(14,24,36,0) 0%, rgba(14,24,36,.35) 65%, rgba(14,24,36,.85) 100%),
+      linear-gradient(180deg, rgba(14,24,36,.55) 0%, rgba(14,24,36,0) 22%, rgba(14,24,36,0) 70%, rgba(14,24,36,.7) 100%);
   }
 
   /* Palabra gigante detrás del frasco */
@@ -97,7 +96,7 @@
   .jvx__word span {
     display: block; font-family: var(--font-heading-family); font-weight: 700; letter-spacing: -0.04em; line-height: .8;
     font-size: clamp(9rem, 24vw, 42rem);
-    background: linear-gradient(180deg, rgba(255,255,255,.95) 0%, rgba(214,206,232,.55) 55%, rgba(214,206,232,0) 100%);
+    background: linear-gradient(180deg, rgba(255,255,255,.95) 0%, rgba(207,221,231,.55) 55%, rgba(207,221,231,0) 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
     opacity: var(--word-o, 0); transform: translate3d(var(--px, 0), var(--py, 0), 0) scale(var(--word-s, 1.12));
     filter: blur(var(--word-b, 0px));
@@ -106,7 +105,7 @@
   /* Halo de luz que respira detrás del frasco */
   .jvx__glow {
     position: absolute; left: 50%; top: 54%; width: min(70vw, 90svh); aspect-ratio: 1; transform: translate(-50%, -50%);
-    background: radial-gradient(closest-side, rgba(233,72,159,.22), rgba(79,168,245,.14) 45%, rgba(7,5,12,0) 72%);
+    background: radial-gradient(closest-side, rgba(200,147,49,.30), rgba(229,237,242,.10) 45%, rgba(14,24,36,0) 72%);
     opacity: var(--glow-o, 0); animation: jvxBreath 6s ease-in-out infinite; pointer-events: none;
   }
   @keyframes jvxBreath { 0%,100% { scale: 1; } 50% { scale: 1.08; } }
@@ -153,7 +152,7 @@
   .jvx__ing--4 { --ix: 83%; --iy: 72%; --iw: 20vw; }
   .jvx__ing--2 .jvx__floaty { animation-delay: -3s; } .jvx__ing--3 .jvx__floaty { animation-delay: -5s; } .jvx__ing--4 .jvx__floaty { animation-delay: -1.5s; }
   .jvx__cap-txt { margin-top: 10px; display: flex; flex-direction: column; gap: 2px; opacity: var(--to, 0); transform: translateY(calc((1 - var(--to, 0)) * 10px)); text-shadow: 0 2px 14px rgba(0,0,0,.8); }
-  .jvx__eyebrow { font-size: 1.05rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: #C9CFDA; }
+  .jvx__eyebrow { font-size: 1.05rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: #E2B85C; }
   .jvx__cap-txt strong { font-family: var(--font-heading-family); font-weight: 700; font-size: clamp(1.6rem, 1.45vw, 2.2rem); line-height: 1.15; color: #fff; }
   .jvx__cap-txt > span:last-child:not(.jvx__eyebrow) { font-size: clamp(1.25rem, 1vw, 1.5rem); color: rgba(255,255,255,.75); line-height: 1.35; }
 
@@ -166,19 +165,19 @@
     opacity: 0; transform: translateY(18px); filter: blur(8px);
     transition: opacity .6s ease, transform .8s cubic-bezier(.22,1,.36,1), filter .6s ease;
   }
-  .jvx__line em { font-style: italic; background: linear-gradient(90deg, #FF7AC8, #A98BFF 50%, #7CC4FF); -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: .08em; }
+  .jvx__line em { font-style: italic; color: #E2B85C; }
   .jvx__line.is-on { opacity: 1; transform: none; filter: none; }
   .jvx__cta { max-width: none; pointer-events: auto; line-height: 1; }
   .jvx__btn {
     display: inline-flex; align-items: center; justify-content: center; min-height: 56px; padding: 16px 34px; border-radius: 12px;
-    background: #fff; color: #0B0812; font-family: var(--font-body-family); font-weight: 700; font-size: 1.7rem; text-decoration: none; letter-spacing: 0;
-    box-shadow: 0 14px 40px -10px rgba(233,72,159,.45); transition: transform .2s ease, box-shadow .3s ease;
+    background: #fff; color: #1F4E6B; font-family: var(--font-body-family); font-weight: 700; font-size: 1.7rem; text-decoration: none; letter-spacing: 0;
+    box-shadow: 0 14px 40px -10px rgba(200,147,49,.5); transition: transform .2s ease, box-shadow .3s ease;
   }
-  .jvx__btn:hover { transform: translateY(-2px); box-shadow: 0 18px 50px -10px rgba(79,168,245,.6); }
+  .jvx__btn:hover { transform: translateY(-2px); box-shadow: 0 18px 50px -10px rgba(200,147,49,.75); }
 
   .jvx__hint { position: absolute; left: 50%; bottom: 24px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px;
     font-size: 1.1rem; letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.6); opacity: var(--hint-o, 1); transition: opacity .4s; }
-  .jvx__hint span { width: 1.5px; height: 34px; background: linear-gradient(#E9489F, rgba(79,168,245,0)); animation: jvxHint 1.8s ease-in-out infinite; }
+  .jvx__hint span { width: 1.5px; height: 34px; background: linear-gradient(#C89331, rgba(200,147,49,0)); animation: jvxHint 1.8s ease-in-out infinite; }
   @keyframes jvxHint { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
 
   /* Celular */

@@ -30,7 +30,7 @@
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "show_gift_card_recipient": false
           }
         },
         "description": {
@@ -39,7 +39,7 @@
         "share": {
           "type": "share",
           "settings": {
-            "share_label": "Share"
+            "share_label": "Compartir"
           }
         }
       },
@@ -259,98 +259,10 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
-    },
-    "spotlight": {
-      "type": "jauiri-spotlight",
-      "blocks": {
-        "ing-0": {
-          "type": "ingredient",
-          "settings": {
-            "name": "Cola de caballo",
-            "text": "Silicio natural",
-            "side": "left"
-          }
-        },
-        "ing-1": {
-          "type": "ingredient",
-          "settings": {
-            "name": "Biotina",
-            "text": "La vitamina del cabello",
-            "side": "right"
-          }
-        },
-        "ing-2": {
-          "type": "ingredient",
-          "settings": {
-            "name": "Myo-inositol",
-            "text": "Equilibrio celular",
-            "side": "left"
-          }
-        },
-        "ing-3": {
-          "type": "ingredient",
-          "settings": {
-            "name": "L-metionina",
-            "text": "Base de la queratina",
-            "side": "right"
-          }
-        },
-        "ing-4": {
-          "type": "ingredient",
-          "settings": {
-            "name": "Zinc aminoquelado",
-            "text": "Cabello y uñas fuertes",
-            "side": "left"
-          }
-        },
-        "ing-5": {
-          "type": "ingredient",
-          "settings": {
-            "name": "Selenio aminoquelado",
-            "text": "Antioxidante",
-            "side": "right"
-          }
-        },
-        "ing-6": {
-          "type": "ingredient",
-          "settings": {
-            "name": "Vitamina B6",
-            "text": "Aprovecha las proteínas",
-            "side": "left"
-          }
-        },
-        "ing-7": {
-          "type": "ingredient",
-          "settings": {
-            "name": "Ácido fólico",
-            "text": "Renovación del folículo",
-            "side": "right"
-          }
-        }
-      },
-      "block_order": [
-        "ing-0",
-        "ing-1",
-        "ing-2",
-        "ing-3",
-        "ing-4",
-        "ing-5",
-        "ing-6",
-        "ing-7"
-      ],
-      "settings": {
-        "caption": "DFH JOVIX",
-        "heading": "Jauiri",
-        "subheading": "Ocho ingredientes, un solo propósito.",
-        "background": "#0B0812",
-        "button_label": "",
-        "button_link": "shopify://products/jauiri"
-      }
     }
   },
   "order": [
     "main",
-    "spotlight",
     "formula",
     "faq",
     "legal"
