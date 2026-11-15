@@ -77,7 +77,7 @@
 </section>
 
 <style>
-  .jvx { position: relative; height: 760vh; background: #0E1824; color: #fff; }
+  .jvx { position: relative; height: 420vh; background: #0E1824; color: #fff; }
   .jvx__stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; isolation: isolate; }
 
   .jvx__bg, .jvx__bg img { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -98,7 +98,7 @@
     font-size: clamp(9rem, 24vw, 42rem);
     background: linear-gradient(180deg, rgba(255,255,255,.95) 0%, rgba(207,221,231,.55) 55%, rgba(207,221,231,0) 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
-    opacity: var(--word-o, 0); transform: translate3d(var(--px, 0), var(--py, 0), 0) scale(var(--word-s, 1.12));
+    opacity: var(--word-o, 1); transform: translate3d(var(--px, 0), var(--py, 0), 0) scale(var(--word-s, 1.12));
     filter: blur(var(--word-b, 0px));
   }
 
@@ -119,8 +119,8 @@
   .jvx__jar {
     --W: min(25vw, 40svh);
     position: absolute; left: 50%; top: 58%; width: var(--W);
-    transform: translate(-50%, -50%) translate3d(0, var(--jar-y, 8vh), 0) scale(var(--jar-s, .72));
-    opacity: var(--jar-o, 0); will-change: transform, opacity;
+    transform: translate(-50%, -50%) translate3d(0, var(--jar-y, 0vh), 0) scale(var(--jar-s, .94));
+    opacity: var(--jar-o, 1); will-change: transform, opacity;
     filter: drop-shadow(0 40px 60px rgba(0,0,0,.65));
   }
   .jvx__jarbox { position: relative; width: 100%; aspect-ratio: 826 / 942; }
@@ -182,7 +182,7 @@
 
   /* Celular */
   @media screen and (max-width: 749px) {
-    .jvx { height: 640vh; }
+    .jvx { height: 380vh; }
     .jvx__jar { --W: min(46vw, 30svh); top: 52%; }
     .jvx__word { top: 30%; }
     .jvx__glow { top: 50%; width: 110vw; }
@@ -237,15 +237,17 @@
       set(stage, '--hint-o', (1 - seg(p, 0.01, 0.05)).toFixed(3));
 
       // 1 · Entrada
+      // El frasco y la palabra ya se ven desde el inicio (nada de pantalla vacía)
       var a = ease(seg(p, 0, 0.13));
-      var word = a * (1 - 0.86 * seg(p, 0.34, 0.44));
+      var vis = 1;
+      var word = 1 - 0.86 * seg(p, 0.34, 0.44);
       set(stage, '--word-o', word.toFixed(3));
       set(stage, '--word-s', (1.12 - 0.12 * a + 0.06 * seg(p, 0.34, 0.5)).toFixed(4));
       set(stage, '--word-b', (6 * seg(p, 0.34, 0.5)).toFixed(2) + 'px');
       var shrink = 0.12 * easeIO(seg(p, 0.36, 0.5));
-      set(jar, '--jar-o', a.toFixed(3));
-      set(jar, '--jar-s', (0.72 + 0.28 * a - shrink).toFixed(4));
-      set(jar, '--jar-y', ((1 - a) * 8).toFixed(2) + 'vh');
+      set(jar, '--jar-o', vis);
+      set(jar, '--jar-s', (0.94 + 0.06 * a - shrink).toFixed(4));
+      set(jar, '--jar-y', ((1 - a) * 2).toFixed(2) + 'vh');
 
       // 2 · Se abre
       var sw = seg(p, 0.17, 0.19);
