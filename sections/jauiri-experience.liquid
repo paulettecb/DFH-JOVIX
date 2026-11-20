@@ -13,7 +13,7 @@
 <section id="jvx-{{ section.id }}" class="jvx" data-jvx>
   <div class="jvx__stage">
     <picture class="jvx__bg" data-depth="0.15">
-      <img src="{{ 'jauiri-fondo-marino.webp' | asset_url }}" alt="" width="1672" height="941" loading="eager" fetchpriority="high">
+      <img src="{{ 'jauiri-fondo-marino.webp' | asset_url }}" alt="" aria-hidden="true" width="1672" height="941" loading="eager" fetchpriority="high">
     </picture>
     <div class="jvx__vignette" aria-hidden="true"></div>
 
@@ -24,7 +24,7 @@
     {%- for i in (1..4) -%}
       <div class="jvx__cap jvx__cap--{{ i }}" data-cap="{{ i }}" aria-hidden="true">
         <div class="jvx__par" data-depth="0.9">
-          <img class="jvx__floaty" src="{{ 'jauiri-capsula-' | append: i | append: '.webp' | asset_url }}" alt="" width="800" height="800" loading="eager">
+          <img class="jvx__floaty" aria-hidden="true" src="{{ 'jauiri-capsula-' | append: i | append: '.webp' | asset_url }}" alt="" width="800" height="800" loading="eager">
         </div>
       </div>
     {%- endfor -%}
@@ -33,7 +33,7 @@
     <div class="jvx__jar" data-jar>
       <div class="jvx__par" data-depth="0.45">
         <div class="jvx__jarbox">
-          <img class="jvx__closed" src="{{ 'jauiri-frasco.webp' | asset_url }}" alt="Frasco de Jauiri de DFH JOVIX" width="826" height="942" loading="eager">
+          <img class="jvx__closed" src="{{ 'jauiri-frasco.webp' | asset_url }}" alt="Frasco de Jauiri de DFH JOVIX, suplemento alimenticio de 60 cápsulas" width="826" height="942" loading="eager">
           <img class="jvx__open" src="{{ 'jauiri-frasco-abierto.webp' | asset_url }}" alt="" width="625" height="790" loading="eager" aria-hidden="true">
           <img class="jvx__lid" src="{{ 'jauiri-tapa.webp' | asset_url }}" alt="" width="607" height="201" loading="eager" aria-hidden="true">
         </div>
@@ -46,9 +46,9 @@
         <div class="jvx__par" data-depth="0.7">
           <div class="jvx__floaty">
             {%- if block.settings.image != blank -%}
-              {{ block.settings.image | image_url: width: 900 | image_tag: class: 'jvx__ingimg', loading: 'eager', alt: '' }}
+              {{ block.settings.image | image_url: width: 900 | image_tag: class: 'jvx__ingimg', loading: 'eager', alt: block.settings.name }}
             {%- elsif block.settings.fallback != blank -%}
-              <img class="jvx__ingimg" src="{{ block.settings.fallback | asset_url }}" alt="" width="1000" height="800" loading="eager">
+              <img class="jvx__ingimg" src="{{ block.settings.fallback | asset_url }}" alt="{{ block.settings.name | escape }}" width="1000" height="800" loading="eager">
             {%- endif -%}
           </div>
         </div>
@@ -62,7 +62,7 @@
 
     {%- comment -%} Frases de cada escena {%- endcomment -%}
     <div class="jvx__lines">
-      <p class="jvx__line" data-line="1">{{ section.settings.line_1 }}</p>
+      <h1 class="jvx__line" data-line="1">{{ section.settings.line_1 }}</h1>
       <p class="jvx__line" data-line="2">{{ section.settings.line_2 }}</p>
       <p class="jvx__line" data-line="3">{{ section.settings.line_3 }}</p>
       {%- if section.settings.cta_label != blank -%}
@@ -86,7 +86,7 @@
     position: absolute; inset: 0; pointer-events: none;
     background:
       radial-gradient(70% 60% at 50% 52%, rgba(14,24,36,0) 0%, rgba(14,24,36,.35) 65%, rgba(14,24,36,.85) 100%),
-      linear-gradient(180deg, rgba(14,24,36,.55) 0%, rgba(14,24,36,0) 22%, rgba(14,24,36,0) 70%, rgba(14,24,36,.7) 100%);
+      linear-gradient(180deg, rgba(14,24,36,.55) 0%, rgba(14,24,36,0) 22%, rgba(14,24,36,0) 58%, rgba(14,24,36,.55) 78%, rgba(14,24,36,.88) 100%);
   }
 
   /* Palabra gigante detrás del frasco */
@@ -151,21 +151,28 @@
   .jvx__ing--3 { --ix: 17%; --iy: 74%; --iw: 15vw; }
   .jvx__ing--4 { --ix: 83%; --iy: 72%; --iw: 20vw; }
   .jvx__ing--2 .jvx__floaty { animation-delay: -3s; } .jvx__ing--3 .jvx__floaty { animation-delay: -5s; } .jvx__ing--4 .jvx__floaty { animation-delay: -1.5s; }
-  .jvx__cap-txt { margin-top: 10px; display: flex; flex-direction: column; gap: 2px; opacity: var(--to, 0); transform: translateY(calc((1 - var(--to, 0)) * 10px)); text-shadow: 0 2px 14px rgba(0,0,0,.8); }
-  .jvx__eyebrow { font-size: 1.05rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: #E2B85C; }
+  .jvx__cap-txt { position: relative; isolation: isolate; margin-top: 10px; display: flex; flex-direction: column; gap: 2px; opacity: var(--to, 0); transform: translateY(calc((1 - var(--to, 0)) * 10px)); text-shadow: 0 2px 14px rgba(0,0,0,.85), 0 1px 3px rgba(0,0,0,.6); }
+  .jvx__cap-txt::before { content: ""; position: absolute; inset: -30% -18%; z-index: -1; pointer-events: none;
+    background: radial-gradient(closest-side, rgba(14,24,36,.75), rgba(14,24,36,.45) 60%, rgba(14,24,36,0) 100%); filter: blur(6px); }
+  .jvx__eyebrow { font-size: 1.15rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: #EBC673; }
   .jvx__cap-txt strong { font-family: var(--font-heading-family); font-weight: 700; font-size: clamp(1.6rem, 1.45vw, 2.2rem); line-height: 1.15; color: #fff; }
-  .jvx__cap-txt > span:last-child:not(.jvx__eyebrow) { font-size: clamp(1.25rem, 1vw, 1.5rem); color: rgba(255,255,255,.75); line-height: 1.35; }
+  .jvx__cap-txt > span:last-child:not(.jvx__eyebrow) { font-size: clamp(1.25rem, 1vw, 1.5rem); color: rgba(255,255,255,.88); line-height: 1.35; }
 
   /* Frases */
-  .jvx__lines { position: absolute; left: 0; right: 0; bottom: 7svh; display: grid; place-items: center; pointer-events: none; padding: 0 16px; }
+  .jvx__lines { position: absolute; left: 0; right: 0; bottom: 7svh; display: grid; place-items: center; pointer-events: none; padding: 0 16px; isolation: isolate; }
+  /* Velo oscuro detrás de las frases: el mármol es muy claro y el texto blanco y dorado se perdía */
+  .jvx__lines::before { content: ""; position: absolute; left: 50%; top: 50%; width: min(980px, 100%); height: 220%; transform: translate(-50%, -50%); z-index: -1;
+    background: radial-gradient(closest-side, rgba(14,24,36,.82), rgba(14,24,36,.55) 55%, rgba(14,24,36,0) 100%); filter: blur(8px); opacity: 0; transition: opacity .6s ease; }
+  .jvx__lines:has(.is-on)::before { opacity: 1; }
   .jvx__line {
     grid-area: 1 / 1; margin: 0; text-align: center; max-width: 24ch;
     font-family: var(--font-heading-family); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1;
     font-size: clamp(2.4rem, 3.2vw, 4.6rem); color: #fff;
+    text-shadow: 0 2px 18px rgba(0,0,0,.6), 0 1px 3px rgba(0,0,0,.45);
     opacity: 0; transform: translateY(18px); filter: blur(8px);
     transition: opacity .6s ease, transform .8s cubic-bezier(.22,1,.36,1), filter .6s ease;
   }
-  .jvx__line em { font-style: italic; color: #E2B85C; }
+  .jvx__line em { font-style: italic; color: #EBC673; }
   .jvx__line.is-on { opacity: 1; transform: none; filter: none; }
   .jvx__cta { max-width: none; pointer-events: auto; line-height: 1; }
   .jvx__btn {
@@ -193,7 +200,7 @@
     .jvx__ing--4 { --ix: 78%; --iy: 77%; --iw: 40vw; }
     .jvx__cap-txt { margin-top: 4px; }
     .jvx__cap-txt > span:last-child:not(.jvx__eyebrow) { display: none; }
-    .jvx__eyebrow { font-size: .9rem; letter-spacing: .16em; }
+    .jvx__eyebrow { font-size: 1rem; letter-spacing: .14em; }
     .jvx__cap-txt strong { font-size: 1.4rem; }
     .jvx__lines { bottom: 3.5svh; }
     .jvx__line { font-size: 2.2rem; }

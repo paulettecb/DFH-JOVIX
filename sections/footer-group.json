@@ -4,16 +4,34 @@
   "sections": {
     "footer": {
       "type": "footer",
-      "blocks": {},
-      "block_order": [],
+      "blocks": {
+        "marca": {
+          "type": "text",
+          "settings": {
+            "heading": "DFH JOVIX",
+            "subtext": "<p>Design for Health. Fórmulas precisas, ingredientes con un trabajo claro y nada de relleno.</p>"
+          }
+        },
+        "contacto": {
+          "type": "text",
+          "settings": {
+            "heading": "Contacto",
+            "subtext": "<p><a href=\"mailto:hola@dfhjovix.com\">hola@dfhjovix.com</a></p><p><a href=\"/pages/contact\">Escríbenos</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "marca",
+        "contacto"
+      ],
       "settings": {
-        "color_scheme": "scheme-1",
-        "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
-        "enable_follow_on_shop": true,
+        "color_scheme": "scheme-3",
+        "newsletter_enable": false,
+        "newsletter_heading": "",
+        "enable_follow_on_shop": false,
         "show_social": true,
-        "enable_country_selector": true,
-        "enable_language_selector": true,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
         "payment_enable": true,
         "show_policy": true,
         "margin_top": 0,

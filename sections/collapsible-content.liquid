@@ -106,6 +106,41 @@
   </div>
 </div>
 
+{%- comment -%}
+  DFH JOVIX · Datos estructurados FAQPage para Google y buscadores con IA.
+  Se generan solos a partir de las preguntas de esta sección.
+{%- endcomment -%}
+{%- liquid
+  assign faq_count = 0
+  for block in section.blocks
+    if block.settings.heading != blank and block.settings.row_content != blank
+      assign faq_count = faq_count | plus: 1
+    endif
+  endfor
+-%}
+{%- if faq_count > 0 -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- assign first = true -%}
+        {%- for block in section.blocks -%}
+          {%- if block.settings.heading != blank and block.settings.row_content != blank -%}
+            {%- unless first -%},{%- endunless -%}
+            {%- assign first = false -%}
+            {
+              "@type": "Question",
+              "name": {{ block.settings.heading | strip_html | json }},
+              "acceptedAnswer": { "@type": "Answer", "text": {{ block.settings.row_content | strip_html | strip | json }} }
+            }
+          {%- endif -%}
+        {%- endfor -%}
+      ]
+    }
+  </script>
+{%- endif -%}
+
 {% schema %}
 {
   "name": "t:sections.collapsible_content.name",
