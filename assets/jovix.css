@@ -39,3 +39,6 @@ h1 em, h2 em, h3 em, .h0 em, .h1 em, .h2 em { font-style: italic; color: var(--j
 /* Tarjetas de columnas: elevación suave al pasar */
 .multicolumn-card { transition: transform .3s ease, box-shadow .3s ease; }
 .multicolumn-card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -24px rgba(23, 39, 58, .45); }
+
+/* Etiquetas de íconos: cortar palabras largas con guion y no a media sílaba (ej. "aminoquelados") */
+.icon-with-text__item .h4, .icon-with-text .h4, .icon-with-text h3 { word-break: normal; overflow-wrap: normal; hyphens: auto; -webkit-hyphens: auto; }
