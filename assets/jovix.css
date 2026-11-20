@@ -78,3 +78,7 @@ h1 em, h2 em, h3 em, .h0 em, .h1 em, .h2 em { font-style: italic; color: var(--j
   /* Monograma DJ en celular */
   .jv-logo { width: 46px; }
 }
+
+/* Barra de anuncio: mismo marino, texto dorado pequeño y espaciado */
+.announcement-bar-section .utility-bar { background: #0E1824; border-bottom: 1px solid rgba(255,255,255,.06); }
+.announcement-bar-section .announcement-bar__message { color: #EBC673; font-size: 1.1rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }

@@ -6,7 +6,7 @@
       "type": "announcement-bar",
       "settings": {
         "color_scheme": "scheme-3",
-        "show_line_separator": true,
+        "show_line_separator": false,
         "show_social": false,
         "auto_rotate": false,
         "change_slides_speed": 5,
@@ -17,7 +17,7 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "DFH JOVIX · Design for Health",
+            "text": "Envío gratis a todo México",
             "text_alignment": "center",
             "color_scheme": "scheme-1",
             "link": ""
@@ -26,8 +26,7 @@
       },
       "block_order": [
         "announcement-bar-0"
-      ],
-      "disabled": true
+      ]
     },
     "header": {
       "type": "header",
