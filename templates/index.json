@@ -34,6 +34,13 @@
           "type": "price",
           "settings": {}
         },
+        "picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "none"
+          }
+        },
         "qty": {
           "type": "quantity_selector",
           "settings": {}
@@ -64,6 +71,7 @@
         "tag",
         "sub",
         "price",
+        "picker",
         "qty",
         "buy",
         "icons"
