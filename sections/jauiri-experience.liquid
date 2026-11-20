@@ -24,7 +24,7 @@
     {%- for i in (1..4) -%}
       <div class="jvx__cap jvx__cap--{{ i }}" data-cap="{{ i }}" aria-hidden="true">
         <div class="jvx__par" data-depth="0.9">
-          <img class="jvx__floaty" aria-hidden="true" src="{{ 'jauiri-capsula-' | append: i | append: '.webp' | asset_url }}" alt="" width="800" height="800" loading="eager">
+          <img class="jvx__floaty" aria-hidden="true" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-jvx-src="{{ 'jauiri-capsula-' | append: i | append: '.webp' | asset_url }}" alt="" width="320" height="320">
         </div>
       </div>
     {%- endfor -%}
@@ -33,9 +33,9 @@
     <div class="jvx__jar" data-jar>
       <div class="jvx__par" data-depth="0.45">
         <div class="jvx__jarbox">
-          <img class="jvx__closed" src="{{ 'jauiri-frasco.webp' | asset_url }}" alt="Frasco de Jauiri de DFH JOVIX, suplemento alimenticio de 60 cápsulas" width="826" height="942" loading="eager">
-          <img class="jvx__open" src="{{ 'jauiri-frasco-abierto.webp' | asset_url }}" alt="" width="625" height="790" loading="eager" aria-hidden="true">
-          <img class="jvx__lid" src="{{ 'jauiri-tapa.webp' | asset_url }}" alt="" width="607" height="201" loading="eager" aria-hidden="true">
+          <img class="jvx__closed" fetchpriority="high" src="{{ 'jauiri-frasco.webp' | asset_url }}" alt="Frasco de Jauiri de DFH JOVIX, suplemento alimenticio de 60 cápsulas" width="826" height="942" loading="eager">
+          <img class="jvx__open" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-jvx-src="{{ 'jauiri-frasco-abierto.webp' | asset_url }}" alt="" width="625" height="790" aria-hidden="true">
+          <img class="jvx__lid" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-jvx-src="{{ 'jauiri-tapa.webp' | asset_url }}" alt="" width="607" height="201" aria-hidden="true">
         </div>
       </div>
     </div>
@@ -46,9 +46,9 @@
         <div class="jvx__par" data-depth="0.7">
           <div class="jvx__floaty">
             {%- if block.settings.image != blank -%}
-              {{ block.settings.image | image_url: width: 900 | image_tag: class: 'jvx__ingimg', loading: 'eager', alt: block.settings.name }}
+              {{ block.settings.image | image_url: width: 900 | image_tag: class: 'jvx__ingimg', loading: 'lazy', alt: block.settings.name }}
             {%- elsif block.settings.fallback != blank -%}
-              <img class="jvx__ingimg" src="{{ block.settings.fallback | asset_url }}" alt="{{ block.settings.name | escape }}" width="1000" height="800" loading="eager">
+              <img class="jvx__ingimg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-jvx-src="{{ block.settings.fallback | asset_url }}" alt="{{ block.settings.name | escape }}" width="640" height="480">
             {%- endif -%}
           </div>
         </div>
@@ -214,6 +214,27 @@
   }
 </style>
 
+<script>
+  /* Carga diferida: lo primero que se ve (fondo y frasco cerrado) carga de inmediato.
+     Lo pesado de las escenas siguientes (cápsulas, frasco abierto, tapa e ingredientes)
+     se pide 2.5 s después de que la página terminó de cargar, o antes si la persona
+     empieza a bajar, para que ya esté listo cuando la escena lo necesite. */
+  (function () {
+    var done = false;
+    function loadAll() {
+      if (done) return; done = true;
+      document.querySelectorAll('img[data-jvx-src]').forEach(function (img) {
+        img.decoding = 'async';
+        img.src = img.getAttribute('data-jvx-src');
+        img.removeAttribute('data-jvx-src');
+      });
+      ['scroll', 'touchstart', 'pointerdown', 'keydown'].forEach(function (ev) { window.removeEventListener(ev, loadAll); });
+    }
+    ['scroll', 'touchstart', 'pointerdown', 'keydown'].forEach(function (ev) { window.addEventListener(ev, loadAll, { passive: true, once: true }); });
+    function later() { setTimeout(loadAll, 2500); }
+    if (document.readyState === 'complete') later(); else window.addEventListener('load', later, { once: true });
+  })();
+</script>
 <script>
   (function () {
     var root = document.getElementById('jvx-{{ section.id }}');

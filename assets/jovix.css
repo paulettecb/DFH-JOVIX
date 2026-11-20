@@ -73,6 +73,8 @@ h1 em, h2 em, h3 em, .h0 em, .h1 em, .h2 em { font-style: italic; color: var(--j
 /* Menú del celular: mismas letras y raya dorada */
 .menu-drawer .menu-drawer__menu-item { font-size: 1.5rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
 .menu-drawer .menu-drawer__menu-item--active { background: rgba(200,147,49,.12); }
+.jv-logo { width: 150px; height: auto; }
 @media screen and (max-width: 749px) {
-  .header__heading-logo-wrapper img { width: 124px !important; }
+  /* Monograma DJ en celular */
+  .jv-logo { width: 46px; }
 }
